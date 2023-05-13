@@ -1,5 +1,5 @@
-from watchml.data import Track
-from .dist import Distances, SeriesDistance
+from watchml.file import Track
+from watchml.ml.dist import Distances, SeriesDistance
 from typing import Callable, List, Protocol
 import pandas as pd
 
