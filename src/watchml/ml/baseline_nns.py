@@ -1,6 +1,6 @@
-from watchml.file import Track
+from watchml.data import WorkoutRoute
 from watchml.ml.dist import Distances, SeriesDistance
-from typing import Callable, List, Protocol
+from typing import List, Protocol
 import pandas as pd
 
 
@@ -25,7 +25,7 @@ class AnnoyNNIndex(NNIndex):
 
 
 class AnnoyNN(NN):
-    def __init__(self, tracks: List[Track]):
+    def __init__(self, tracks: List[WorkoutRoute]):
         self.tracks = tracks
 
     def build_index(self) -> NNIndex:
@@ -52,10 +52,12 @@ class BaselineNNIndex(NNIndex):
 
 
 class BaselineNN(NN):
-    def __init__(self, tracks: List[Track]):
+    def __init__(self, tracks: List[WorkoutRoute]):
         self.tracks = tracks
 
-    def track_dist(self, track1: Track, track2: Track, dist: SeriesDistance) -> float:
+    def track_dist(
+        self, track1: WorkoutRoute, track2: WorkoutRoute, dist: SeriesDistance
+    ) -> float:
         df1 = track1.track_df
         df2 = track2.track_df
         return (
