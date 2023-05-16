@@ -54,9 +54,9 @@ def add_date_components_to(
     return df
 
 
-def normalize(x, min, max):
+def normalize(x, min_val, max_val):
     x = x - x.min()
     x = x / x.max()
-    x = x * (max - min)
-    x = x + min
+    x = x * (max_val - min_val)
+    x = x + min_val
     return x

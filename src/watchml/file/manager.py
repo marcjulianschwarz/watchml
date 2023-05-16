@@ -35,7 +35,7 @@ class WatchManager:
 
         if root is None:
             print("Reading Export.xml file...")
-            root = self.loader._load_export_root()
+            root = self.loader.load_export_root()
 
         self.update_cache_info()
         # self.delete_old_data()

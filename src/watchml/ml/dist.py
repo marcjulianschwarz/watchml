@@ -1,8 +1,10 @@
-import pandas as pd
 from typing import Callable
+
+import pandas as pd
 
 
 SeriesDistance = Callable[[pd.Series, pd.Series], pd.Series]
+
 
 class Distances:
     @staticmethod

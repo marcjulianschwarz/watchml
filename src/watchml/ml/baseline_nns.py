@@ -1,7 +1,10 @@
-from watchml.data import WorkoutRoute
-from watchml.ml.dist import Distances, SeriesDistance
-from typing import List, Protocol
+from typing import List
+from typing import Protocol
+
 import pandas as pd
+from watchml.data import WorkoutRoute
+from watchml.ml.dist import Distances
+from watchml.ml.dist import SeriesDistance
 
 
 class NNIndex(Protocol):
@@ -45,7 +48,7 @@ class BaselineNNIndex(NNIndex):
     def nns(self, t, n=3) -> List[int]:
         vals = []
         for k, v in self.dists.items():
-            i, j = k
+            i, _ = k
             if i == t:
                 vals.append(v)
         return pd.DataFrame(vals).sort_values(by=0).index.values[:n]

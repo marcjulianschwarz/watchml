@@ -1,6 +1,7 @@
-from watchml.file.file import FileSystemManager
 import os
+
 import pandas as pd
+from watchml.file.file import FileSystemManager
 
 
 def test_scaffold_paths(tmp_path):

@@ -1,7 +1,3 @@
-from watchml.file import WatchManager
-from pathlib import Path
-
-
 # def test_delete_old_data():
 #     wm = WatchManager(
 #         data_path=Path("tests") / "sample_data",
@@ -11,8 +7,6 @@ from pathlib import Path
 #     assert not (Path("tests") / "sample_data/cache/workout_statistics").exists()
 #     assert not (Path("tests") / "sample_data/cache/routes").exists()
 #     assert not (Path("tests") / "sample_data/cache/workout_metadata_entry").exists()
-
-
 # def test_update_cache_info():
 #     wm = WatchManager(
 #         data_path=Path("tests") / "sample_data",

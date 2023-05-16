@@ -6,10 +6,7 @@ This will be a newer and better version of my previous [watchlib](https://github
 
 ---
 
-You can [pip](https://test.pypi.org/project/watchml/) install the test package like this 
+You can [pip](https://test.pypi.org/project/watchml/) install the test package like this
 ```
 pip install -i https://test.pypi.org/simple/ watchml
 ```
-
-
-
