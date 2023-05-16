@@ -1,4 +1,3 @@
-import os
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from uuid import uuid4
@@ -25,7 +24,7 @@ class WatchWriter:
         ]
 
         # Only create the cache folder structure if it doesn't exist yet
-        if not os.path.exists("cache"):
+        if not self.cache_path.exists():
             FileSystemManager.scaffold_paths(paths)
 
     def write_record_files(self, record_df: pd.DataFrame):
@@ -143,7 +142,7 @@ class WatchWriter:
                 if file_ref is not None:
                     route_path = file_ref.attrib["path"]
                     route.attrib["path"] = route_path
-                    route_path = os.path.join(self.data_path, route_path[1:])
+                    route_path = self.data_path / route_path[1:]
                     route_tree = ET.parse(route_path)
                     route_root = route_tree.getroot()
 

@@ -21,7 +21,9 @@ class WatchManager:
         FileSystemManager.delete_files_in(self.cache_path / "workout_metadata_entry")
 
     def update_cache_info(self):
-        print("Updating cache info.")
+        if not self.cache_path.exists():
+            self.writer.scaffold_folder_structure()
+
         with open(self.cache_path / "cache.json", "w") as f:
             content = {
                 "last_updated": dt.now().strftime("%Y-%m-%d %H:%M:%S"),

@@ -27,6 +27,8 @@ class FileSystemManager:
     @staticmethod
     def delete_files_in(path: Path | str):
         path = Path(path)
+        if not path.exists():
+            return
         for file in os.listdir(path):
             print(f"Deleting {file}")
             os.remove(path / file)
