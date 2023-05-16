@@ -3,7 +3,9 @@ import xml.etree.ElementTree as ET
 from datetime import datetime as dt
 from pathlib import Path
 
-from watchml.file import FileSystemManager, WatchLoader, WatchWriter
+from .file import FileSystemManager
+from .loader import WatchLoader
+from .writer import WatchWriter
 
 
 class WatchManager:
