@@ -7,10 +7,12 @@ Welcome to watchml's documentation!
 ===================================
 
 .. toctree::
+   :caption: First Steps
    :maxdepth: 2
-   :caption: Contents:
 
-   test
+   about
+   installation
+   apidoc/watchml
 
 Indices and tables
 ==================
