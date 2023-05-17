@@ -16,7 +16,10 @@ master_doc = "index"
 
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx_rtd_theme",
+    "sphinx.ext.autosummary",
+    "sphinx_rtd_theme",  # Read the Docs theme
+    # "numpydoc",
+    "sphinx.ext.napoleon",  # Use napolean for numpy style docstrings
 ]
 
 templates_path = ["_templates"]

@@ -10,10 +10,13 @@ class FileSystemManager:
 
     @staticmethod
     def scaffold_paths(paths: List[Path | str]):
-        """Creates a folder structure.
+        """
+        Creates a folder structure.
 
-        :param paths: A list of paths to create.
-        :type paths: List[Path | str]
+        Parameters
+        ----------
+        paths : List[Path | str]
+            List of paths to create.
         """
 
         for path in paths:
@@ -22,23 +25,29 @@ class FileSystemManager:
 
     @staticmethod
     def to_processed(path: Path | str, df: pd.DataFrame, name: str):
-        """Saves a dataframe to the processed folder.
+        """
+        Writes a DataFrame to a csv file.
 
-        :param path: Path to the processed folder.
-        :type path: Path | str
-        :param df: The dataframe to save.
-        :type df: pd.DataFrame
-        :param name: The name of the file.
-        :type name: str
+        Parameters
+        ----------
+        path : Path | str
+            Path to the folder.
+        df : pd.DataFrame
+            DataFrame to write.
+        name : str
+            Name of the file.
         """
         df.to_csv(path / f"{name}.csv", index=False)
 
     @staticmethod
     def delete_files_in(path: Path | str):
-        """Deletes all files in a folder.
+        """
+        Deletes all files in a folder.
 
-        :param path: Path to the folder.
-        :type path: Path | str
+        Parameters
+        ----------
+        path : Path | str
+            Path to the folder.
         """
         path = Path(path)
         if not path.exists():
