@@ -5,8 +5,8 @@ from typing import List
 from typing import Tuple
 
 import pandas as pd
-from watchml.data import ECG
-from watchml.data import WorkoutRoute
+from watchml import ECG
+from watchml import WorkoutRoute
 
 logger = logging.getLogger(__name__)
 

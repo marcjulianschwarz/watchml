@@ -2,9 +2,9 @@ from typing import List
 from typing import Protocol
 
 import pandas as pd
-from watchml.data import WorkoutRoute
-from watchml.ml.dist import Distances
-from watchml.ml.dist import SeriesDistance
+from watchml import Distances
+from watchml import SeriesDistance
+from watchml import WorkoutRoute
 
 
 class NNIndex(Protocol):

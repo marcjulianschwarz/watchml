@@ -3,7 +3,7 @@ from pathlib import Path
 from uuid import uuid4
 
 import pandas as pd
-from watchml.file import FileSystemManager
+from watchml import FileSystemManager
 
 WorkoutElement = ET.Element
 
