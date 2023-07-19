@@ -102,13 +102,15 @@ class WorkoutStatistics:
 
 
 class ECG:
-    def __init__(self, values: List[float], meta_data: dict):
+    def __init__(self, values: List[float], meta_data: dict, name: str):
         self.values = values
         self.meta_data = meta_data
+        self.name = name
+        self.date = self.name.split("_")[1]
 
     def __repr__(self) -> str:
         desc = "\n".join([f"{k}: {v}" for k, v in self.meta_data.items()])
-        return f"ECG(\n{desc}\n)"
+        return f"ECG(\n{desc}\n) -> {self.name}"
 
     def __getitem__(self, key):
         if key in self.meta_data:
@@ -118,6 +120,24 @@ class ECG:
 
     def keys(self):
         return self.meta_data.keys()
+
+    def generate_plot(self, path: str):
+        plt.switch_backend("Agg")
+        fig, ax = plt.subplots(figsize=(20, 7))
+        ax.plot(self.values)
+        ax.set_title(f"ECG - {self.name}")
+        ax.set_xlabel("Time")
+        ax.set_ylabel("mV")
+        ax.xaxis.set_major_formatter(DateFormatter("%H:%M:%S"))
+        fig.savefig(path)
+
+    def to_json(self):
+        return {
+            "name": self.name,
+            "values": self.values,
+            "metadata": self.meta_data,
+            "date": self.date,
+        }
 
 
 @dataclass

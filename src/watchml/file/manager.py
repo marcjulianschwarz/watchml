@@ -9,11 +9,15 @@ from .writer import WatchWriter
 
 
 class WatchManager:
-    def __init__(self, data_path: Path | str, cache_path: Path | str) -> None:
+    def __init__(
+        self, data_path: Path | str, cache_path: Path | str | None = None
+    ) -> None:
         self.loader = WatchLoader(data_path=data_path, cache_path=cache_path)
         self.writer = WatchWriter(data_path=data_path, cache_path=cache_path)
         self.data_path = Path(data_path)
-        self.cache_path = Path(cache_path)
+        self.cache_path = (
+            Path(cache_path) if cache_path is not None else data_path / "cache"
+        )
 
     def delete_old_data(self):
         FileSystemManager.delete_files_in(self.cache_path / "workout_statistics")

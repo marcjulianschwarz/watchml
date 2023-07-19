@@ -1,7 +1,7 @@
 import pandas as pd
 
-
 skip_slow_tests = True
+
 
 MONTH_TIME_OF_YEAR_MAPPING = {
     1: 1,
